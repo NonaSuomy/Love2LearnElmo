@@ -22,7 +22,11 @@ https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar board
 
 Motor driver (F Model) http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
 
+The motor driver circuit chip integrates a H bridge driving circuit which is designed by using the N channel and the P channel power MOSFET, which is suitable for driving a brushless DC motor or a winding which drives the stepping motor. The driving circuit built-in overheating protection circuit, built-in temperature hysteresis circuit, to ensure that the circuit back to the safe temperature. The series chips are mainly used in Section 2 to 6 AA / AAA dry battery powered toy motor drive, advanced robot motor drive, motor drive digital products and industrial products of the motor drive and electronic toy machine and other occasions. Typical application circuit diagram is as follows:
+
 ![image](https://github.com/user-attachments/assets/6f5a6d8f-528c-4d4a-abab-d8013374844c)
+
+The motor driver circuit chip integrates a H bridge driving circuit which is designed by using the N channel and the P channel power MOSFET, which is suitable for driving a brushless DC motor or a winding which drives the stepping motor. The driving circuit built-in overheating protection circuit, built-in temperature hysteresis circuit, to ensure that the circuit back to the safe temperature. The series chips are mainly used in Section 2 to 6 AA / AAA dry battery powered toy motor drive, advanced robot motor drive, motor drive digital products and industrial products of the motor drive and electronic toy machine and other occasions. Typical application circuit diagram is as follows:
 
 ![image](https://github.com/user-attachments/assets/782fea2e-997d-4527-96d5-208f3cee3fd5)
 
