@@ -21,20 +21,97 @@ https://fcc.report/FCC-ID/RS4-B6572/2921152
 https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar board
 
 Motor driver (F Model) http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
+
 ![image](https://github.com/user-attachments/assets/6f5a6d8f-528c-4d4a-abab-d8013374844c)
+
 ![image](https://github.com/user-attachments/assets/782fea2e-997d-4527-96d5-208f3cee3fd5)
 
 Mouth Limit Switch
+
 ![image](https://github.com/user-attachments/assets/8e11348a-d9e5-4910-9e51-697f35800fc7)
 
 GPR25L6403F Flash https://www.generalplus.com/GPR25L6403F-7uNpZ-1LVvrLvLN4587SVpnSNproduct_detail
 
+![image](https://github.com/user-attachments/assets/ded5fb97-8f6b-4dc4-9851-86f3cd1eb084)
+
+🔧 Key Features
+Memory Organization: Internally organized as 8,388,608 × 8 bits in single I/O mode. In dual I/O mode, it becomes 33,554,432 × 2 bits, and in quad I/O mode, it is 16,777,216 × 4 bits. 
+
+Interface: Supports Serial Peripheral Interface (SPI) in Mode 0 and Mode 3.
+
+Erase Options:
+
+2048 sectors of 4KB each
+
+256 blocks of 32KB each
+
+128 blocks of 64KB each
+
+Power Supply: Operates at 3V.
+
+#### MCU
+
+![image](https://github.com/user-attachments/assets/294ceacb-076d-466a-8a3d-4f2898e397c6)
 
 https://www.generalplus.com/rmf/AN0178-programming_GPCE2_GPCE4_OTP-16.pdf
 
-SP1/2 (Speaker) Mouth (Limit Switch?) Nose (Microswitch) FW (Forward Mouth) BW (Backward Mouth) 3.3v B+ B- (Battery)
+GPCE4P096UA, a 16-bit architecture sound controller with USB interface, features the newest 16-bit microprocessor, m'nSP2.0™ (pronounced as micro-n-SP 2.0), developed by Sunplus Technology. This high processing speed assures the m'nSP2.0™ is capable of handling complex digital signal processes easily and rapidly. Therefore, the GPCE4P096UA is applicable to the areas of digital sound process and voice recognition. The operating voltage of 2.4V through 5.5V and speed of 0.046875MHz through 48MHz yield the GPCE4P096UA to be easily used in varieties of applications. The memory capacity includes 48K-word OTP plus a 4K-word working SRAM and 2K-word Cache RAM (also can be working RAM). Other features including 48 programmable multi-functional I/Os, five 16-bit timers/counters, 32768Hz Real Time Clock, Low Voltage Reset/Detection, eight channels 12-bit ADC (one channel built-in MIC amplifier with auto gain controller), capacitive touch sensor, one SPI flash controller, one 16-bit DAC with push-pull amplifier and many others.
 
+Features
 
+16-bit m'nSP2.0™ microprocessor
+
+CPU Clock: 0.046875MHz - 48MHz
+
+Operating Voltage: 2.4V - 5.5V
+
+Power regulator built-in with input voltage: 2.4~5.5V, output voltage: 2.4~3.3V
+
+IO PortA & B & C Operating Voltage: 2.4V - 5.5V
+
+48K-word fast speed OTP
+
+4K-word working SRAM
+
+2K-word cache SRAM (also can be released to working-RAM)
+
+Total 384-byte USB buffer
+
+Software-based audio processing
+
+Two sets of 14-bit software channel with noise filter, mixer and scalar to play high quality sound
+
+Standby mode for power saving
+
+Total five 16-bit timers. Three general-purpose 16-bit timers/counters, Two touch sensing timers (also can released for general-purpose).
+
+One 14-bit DAC with push-pull amplifier.  Supports cascade mode as well as stereo mode
+
+48 general I/Os (bit programmable)
+
+Key wakeup function (IOA0 - 15, IOB0-15, IOC0-15)
+
+Capacitor sensing touch hardware for 48 I/O
+
+PLL feature for system clock
+
+32768Hz Real Time Clock (RTC), crystal or internal resistor oscillator selected.
+
+Eight channels 12-bit AD converter, Built-in microphone amplifier and AGC or PGA function selected
+
+Low voltage reset and low voltage detection
+
+Watchdog Enable (option)
+
+Two SPI serial interface I/Os. One is SPI flash controller which supports one-I/O, two-I/O, four-I/O modes and support auto read/program mode. The other is normal SPI interface.
+
+Supports USB 2.0 full speed (12MHz) compliant device with built-in transceiver
+
+#### Header Pins
+
+SP1/2 (Speaker) Mouth (Limit Switch) Nose (Microswitch) FW (Forward Mouth) BW (Backward Mouth) 3.3v (Motor Driver 3v3) B+ B- (Motor Driver Battery 6v)
+
+LEFT1 (Left Hand Capacitive Touch) RIGHT1 (Right Hand Capacitive Touch) BELLY1 (Belly Capacitive Touch)
 
 #### Audio Samples
 
@@ -45,6 +122,7 @@ https://www.youtube.com/watch?v=IE199lbOQo0
 https://www.bluetooth.com/specifications/assigned-numbers/
 
 ![image](https://github.com/user-attachments/assets/529751ce-6c85-4da0-96ac-e197b177ff7d)
+
 ![image](https://github.com/user-attachments/assets/8c9ca5af-99d6-4484-94d2-dc7f47d92a91)
 
 ```
