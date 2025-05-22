@@ -30,7 +30,7 @@ https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar board
 
 ![image](https://github.com/user-attachments/assets/a567208d-d741-4d23-b8c2-e93fabddb805)
 
-4Ω
+16Ω
 
 #### Motor driver
 
