@@ -1,14 +1,334 @@
 # Love2Learn Elmo
+
+![image](https://github.com/user-attachments/assets/6431066e-56c0-469e-b0d5-2b8fe662e5e8)
+
+
 ## RE Toy Exploration
 
 ### Disclaimer
 
-I was impaired while doing this and have no idea what was done. All things are of their respectful owners. I claim/own/distribute nothing, this is strictly for educational/personal purpose. I don't sell products/services or work for any one/company and only did this to learn about RE and teach others where I stumble.
+I was impaired while doing this and have no idea what was done. All things are of their respectful owners. I claim/own/distribute nothing, this is strictly for educational/personal purpose. I don't sell products/services or work for any one/company and only did this to learn about RE and teach others where I stumble. If you find anything cool please feel free to share in issues or discussion.
 
 ### Kudos
 
 Much love goes out to [GMMan (Yukai Li)](https://github.com/GMMan) they inspired and taught me everything I know, and were basically able to remote RE on the moon with duct tape, moon dust and bubblegum dev boards. I would have accomplished nothing without standing on the shoulder of giants.
 ![image](https://github.com/user-attachments/assets/e433d5b5-2375-4f9c-bc6b-115c498128e7)
+
+### Exploration
+
+https://fcc.report/FCC-ID/RS4-B6572/2921152
+
+https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar baard
+
+Motor driver (F Model) http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
+![image](https://github.com/user-attachments/assets/6f5a6d8f-528c-4d4a-abab-d8013374844c)
+![image](https://github.com/user-attachments/assets/782fea2e-997d-4527-96d5-208f3cee3fd5)
+
+Mouth Limit Switch
+![image](https://github.com/user-attachments/assets/8e11348a-d9e5-4910-9e51-697f35800fc7)
+
+GPR25L6403F Flash https://www.generalplus.com/GPR25L6403F-7uNpZ-1LVvrLvLN4587SVpnSNproduct_detail
+
+
+https://www.generalplus.com/rmf/AN0178-programming_GPCE2_GPCE4_OTP-16.pdf
+
+SP1/2 (Speaker) Mouth (Limit Switch?) Nose (Microswitch) FW (Forward Mouth) BW (Backward Mouth) 3.3v B+ B- (Battery)
+
+
+
+#### Audio Samples
+
+https://www.youtube.com/watch?v=IE199lbOQo0
+
+#### Bluetooth
+
+https://www.bluetooth.com/specifications/assigned-numbers/
+
+![image](https://github.com/user-attachments/assets/529751ce-6c85-4da0-96ac-e197b177ff7d)
+![image](https://github.com/user-attachments/assets/8c9ca5af-99d6-4484-94d2-dc7f47d92a91)
+
+```
+Elmo L2L
+MacAddress: ##:##:##:##:##:##
+System device ID: BluetoothLE#BluetoothLE##:##:##:##:##:##-##:##:##:##:##:##
+```
+
+```
+Device Information
+The Device Information Service exposes manufacturer and/or vendor information about a device.
+0000180A-0000-1000-8000-00805F9B34FB
+
+Manufacturer Name String
+This characteristic represents the name of the manufacturer of the device.
+00002A29-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 21
+Protection: Plain
+Reading: 48 61 73 62 72 6F
+
+Model Number String
+This characteristic represents the model number that is assigned by the device vendor.
+00002A24-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 23
+Protection: Plain
+Reading: 30
+
+Serial Number String
+This characteristic represents the serial number for a particular instance of the device.
+00002A25-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 25
+Protection: Plain
+Reading: 35 33 32 39 38 39 37 38 34 30 30 32 33 38 35 39 31 37 34
+
+Hardware Revision String
+This characteristic represents the hardware revision for the hardware within the device.
+00002A27-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 27
+Protection: Plain
+Reading: 30
+
+Firmware Revision String
+This characteristic represents the firmware revision for the firmware within the device.
+00002A26-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 29
+Protection: Plain
+Reading: 32 30
+
+Software Revision String
+This characteristic represents the software revision for the software within the device.
+00002A28-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 31
+Protection: Plain
+Reading: 30
+```
+
+```
+DFU Service UUID
+No description available.
+00001540-1212-EFDE-1523-785FEABCD123
+
+DFU Packet Characteristic
+00001532-1212-EFDE-1523-785FEABCD123
+Properties: WriteWithoutResponse
+Attribute handle: 13
+Protection: Plain
+
+DFU Control Point Characteristic
+00001531-1212-EFDE-1523-785FEABCD123
+Properties: Write, Notify
+Attribute handle: 15
+Protection: Plain
+
+DFU Version Characteristic
+00001534-1212-EFDE-1523-785FEABCD123
+Properties: Read
+Attribute handle: 18
+Protection: Plain
+
+Reading: 06 00
+```
+
+```
+Generic Access
+The generic_access service contains generic information about the device. All available Characteristics are readonly.
+00001800-0000-1000-8000-00805F9B34FB
+
+Device Name
+No description available.
+00002A00-0000-1000-8000-00805F9B34FB
+
+Properties: Read, Write
+Attribute handle: 2
+Protection: Plain
+Reading: 45 6C 6D 6F 20 4C 32 4C
+
+Appearance
+The external appearance of this device. The values are composed of a category (10-bits) and sub-categories (6-bits).
+00002A01-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 4
+Protection: Plain
+Reading: 00 00
+
+Peripheral Preferred Connection Parameters
+No description available.
+00002A04-0000-1000-8000-00805F9B34FB
+Properties: Read
+Attribute handle: 6
+Protection: Plain
+Reading: 09 00 90 01 00 00 90 01
+```
+
+```
+Generic Attribute
+No description available.
+00001801-0000-1000-8000-00805F9B34FB
+
+Service Changed
+No description available.
+00002A05-0000-1000-8000-00805F9B34FB
+Properties: Indicate
+Attribute handle: 9
+Protection: Plain
+```
+
+```
+ELMO_SERVICE_UUID
+No description available.
+DAB91435-B5A1-E29C-B041-BCD562613BDF
+
+ELMO_CHAR_DATA_NOTIFY_UUID
+No description available.
+DAB91382-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, Notify
+Attribute handle: 34
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_DATA_WRITE_UUID
+No description available.
+DAB91383-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, WriteWithoutResponse
+Attribute handle: 37
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_CTRL_NOTIFY_UUID
+No description available.
+DAB90756-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, Notify
+Attribute handle: 39
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_CTRL_WRITE_UUID
+No description available.
+DAB90757-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, WriteWithoutResponse
+Attribute handle: 42
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_P2P_NOTIFY_UUID
+No description available.
+DAB91440-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, Notify
+Attribute handle: 44
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_P2P_WRITE_UUID
+No description available.
+DAB91441-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, WriteWithoutResponse
+Attribute handle: 47
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+ELMO_CHAR_CTRL_RSSI_UUID
+No description available.
+DAB90755-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, Notify
+Attribute handle: 49
+Protection: Plain
+Reading: 00
+
+Unknown characteristic
+No description available.
+DAB90758-B5A1-E29C-B041-BCD562613BDF
+Properties: Read, WriteWithoutResponse
+Attribute handle: 52
+Protection: Plain
+Reading: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+```
+### Bluetooth Firmware Dump
+
+![image](https://github.com/user-attachments/assets/8d6a4249-4d59-44f6-a13d-4db4cac66d9e)
+
+![ElmoNRF51866Module](https://github.com/user-attachments/assets/952e214d-142c-4b55-862f-a2f3f828b634)
+
+#### OpenOCD
+
+rpi_swd.cfg
+```
+adapter driver bcm2835gpio
+adapter speed 100
+adapter gpio swclk 25
+adapter gpio swdio 24
+#adapter gpio srst 11
+
+transport select swd
+reset_config srst_only srst_push_pull
+```
+
+nrf51 Hello
+```
+sudo openocd -f rpi_swd.cfg -f /usr/share/openocd/scripts/target/nrf51.cfg
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+srst_only separate srst_gates_jtag srst_push_pull connect_deassert_srst
+
+Info : Listening on port 6666 for tcl connections
+Info : Listening on port 4444 for telnet connections
+Info : BCM2835 GPIO JTAG/SWD bitbang driver
+Info : clock speed 1006 kHz
+Info : SWD DPIDR 0x0bb11477
+Info : [nrf51.cpu] Cortex-M0 r0p0 processor detected
+Info : [nrf51.cpu] target has 4 breakpoints, 2 watchpoints
+Info : starting gdb server for nrf51.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+```
+
+Telnet to OpenOCD Flash Dump
+
+```
+telnet localhost 4444
+Trying ::1...
+Connection failed: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Open On-Chip Debugger
+> flash read_bank 0 firmware.bin
+nRF51822-QFAA(build code: H1) 256kB Flash, 16kB RAM
+wrote 262144 bytes to file firmware.bin from flash bank 0 at offset 0x00000000 in 2.295215s (111.536 KiB/s)
+```
+
+#### Flash, FICR, UICR
+```
+dump_image flash.bin 0x0 0x40000
+dump_image flash.bin2 0x0 0x40000
+dump_image ficr.bin 0x10000000 0x1000
+dump_image ficr2.bin 0x10000000 0x1000
+dump_image uicr.bin 0x10001000 0x1000
+dump_image uicr2.bin 0x10001000 0x1000
+```
+
+You can take two of each to test if good for a sanity check
+
+```
+md5sum flash*
+e20e984ccaabe63d4ee572324ce83f1b  flash2.bin
+e20e984ccaabe63d4ee572324ce83f1b  flash.bin
+md5sum ficr*
+8e1c929396c0e29ea786542e0411e3c9  ficr2.bin
+8e1c929396c0e29ea786542e0411e3c9  ficr.bin
+md5sum uicr*
+70d4bdbb8ff33b8b0bcaa3afd8cf1547  uicr2.bin
+70d4bdbb8ff33b8b0bcaa3afd8cf1547  uicr.bin
+```
+
+#### Random links
+10,000 names missing, I bet the voice actor was tired after that.
+
+https://web.archive.org/web/20161006184912/http://www.hasbro.com/en-us/brands/playskool/sesamestreet/elmo/tools
 
 ### APK
 
@@ -28,15 +348,17 @@ Love2Learn Elmo_1.0(37349)_Jun-11-2016_Android4.3+_armeabi-v7a_APKPure.apk
 
 GeneralPlus Tools (G+ Gadget/G+ Eventor) https://www.generalplus.com/1LVlangLNn1SVs4SNservice_n_support_d
 
-Ghidra https://github.com/NationalSecurityAgency/ghidra
+Ghidra 10.1.5 https://github.com/NationalSecurityAgency/ghidra
+
+sleigh-unsp https://github.com/GMMan/sleigh-unsp/tree/discrete-registers Ghidra\Processors
 
 OLS Open Logic Sniffer https://lxtreme.nl/projects/ols/ https://sigrok.org/wiki/Openbench_Logic_Sniffer
 
-Realterm https://realterm.sourceforge.io/
+Realterm https://realterm.sourceforge.io
 
 dnSpy https://dnspy.org https://github.com/dnSpy/dnSpy
 
-APKTool https://apktool.org https://github.com/iBotPeaches/Apktool
+APKTool https://apktool.org https://github.com/iBotPeaches/Apktool https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat
 
 AssetStudioGUI https://github.com/Perfare/AssetStudio
 
@@ -44,11 +366,15 @@ AssetRipper https://assetripper.github.io/AssetRipper
 
 BluetoothLELab https://github.com/IanSavchenko/BleLab https://apps.microsoft.com/detail/9n6jd37gwzc8
 
-WinSCP https://winscp.net/
+WinSCP https://winscp.net
 
-Flashrom https://www.flashrom.org/
+Flashrom https://www.flashrom.org
 
 esp32-serprog https://github.com/thisiseth/esp32-serprog
+
+OpenOCD https://openocd.org https://github.com/openocd-org/openocd
+
+Java SDK https://www.oracle.com/java/technologies/downloads/
 
 #### Hardware
 
