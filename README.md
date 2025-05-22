@@ -18,7 +18,7 @@ Much love goes out to [GMMan (Yukai Li)](https://github.com/GMMan) they inspired
 
 https://fcc.report/FCC-ID/RS4-B6572/2921152
 
-https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar baard
+https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar board
 
 Motor driver (F Model) http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
 ![image](https://github.com/user-attachments/assets/6f5a6d8f-528c-4d4a-abab-d8013374844c)
