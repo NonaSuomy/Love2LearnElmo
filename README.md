@@ -20,7 +20,27 @@ https://fcc.report/FCC-ID/RS4-B6572/2921152
 
 https://fccid.io/RS4B7493/Schematics/Circuit-Diagram-3110904 similar board
 
-Motor driver (F Model) http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
+#### Mainboard
+
+![IMG_E4980](https://github.com/user-attachments/assets/61995086-66ca-47ea-9e30-f96eb3ec6eb3)
+
+![IMG_E4983](https://github.com/user-attachments/assets/c0f6db96-39af-4105-988f-6d5ef5f041e4)
+
+#### Speaker
+
+![image](https://github.com/user-attachments/assets/a567208d-d741-4d23-b8c2-e93fabddb805)
+
+4Ω
+
+#### Motor driver
+
+![image](https://github.com/user-attachments/assets/5b233e12-0acd-48a1-ab43-a1525dc46f85)
+
+![image](https://github.com/user-attachments/assets/62f21931-136e-4241-86a5-bb1191fb5cfc)
+
+DW1134F
+
+http://www.dragonwinnerltd.com/detail.php?pid=15&lang=en
 
 The motor driver circuit chip integrates a H bridge driving circuit which is designed by using the N channel and the P channel power MOSFET, which is suitable for driving a brushless DC motor or a winding which drives the stepping motor. The driving circuit built-in overheating protection circuit, built-in temperature hysteresis circuit, to ensure that the circuit back to the safe temperature. The series chips are mainly used in Section 2 to 6 AA / AAA dry battery powered toy motor drive, advanced robot motor drive, motor drive digital products and industrial products of the motor drive and electronic toy machine and other occasions. Typical application circuit diagram is as follows:
 
@@ -30,11 +50,31 @@ The motor driver circuit chip integrates a H bridge driving circuit which is des
 
 ![image](https://github.com/user-attachments/assets/782fea2e-997d-4527-96d5-208f3cee3fd5)
 
-Mouth Limit Switch
+#### Mouth Limit Switch
 
 ![image](https://github.com/user-attachments/assets/8e11348a-d9e5-4910-9e51-697f35800fc7)
 
-GPR25L6403F Flash https://www.generalplus.com/GPR25L6403F-7uNpZ-1LVvrLvLN4587SVpnSNproduct_detail
+#### Nose Microswitch
+
+![image](https://github.com/user-attachments/assets/192e5956-b4f4-4eb4-a9b4-63b0b34c4e02)
+
+#### Main On/Off Toggle Switch and Reset Microswitch
+
+![image](https://github.com/user-attachments/assets/42395574-82c3-4dde-a90c-02731e1a9b51)
+
+![image](https://github.com/user-attachments/assets/2fd46a5d-b441-4efd-aa31-97f205d8f977)
+
+
+#### Mouth Motor
+
+![image](https://github.com/user-attachments/assets/459b4b90-b0fa-4e8e-8989-351d5518967e)
+
+
+#### Flashrom
+
+GPR25L6403F
+
+https://www.generalplus.com/GPR25L6403F-7uNpZ-1LVvrLvLN4587SVpnSNproduct_detail
 
 ![image](https://github.com/user-attachments/assets/ded5fb97-8f6b-4dc4-9851-86f3cd1eb084)
 
@@ -54,6 +94,8 @@ Erase Options:
 Power Supply: Operates at 3V.
 
 #### MCU
+
+GPCE4P096UA
 
 ![image](https://github.com/user-attachments/assets/294ceacb-076d-466a-8a3d-4f2898e397c6)
 
@@ -113,21 +155,51 @@ Supports USB 2.0 full speed (12MHz) compliant device with built-in transceiver
 
 #### Header Pins
 
-SP1/2 (Speaker) Mouth (Limit Switch) Nose (Microswitch) FW (Forward Mouth) BW (Backward Mouth) 3.3v (Motor Driver 3v3) B+ B- (Motor Driver Battery 6v)
+![image](https://github.com/user-attachments/assets/8a37b66e-2864-4cc3-a424-74e3350140ec)
 
-LEFT1 (Left Hand Capacitive Touch) RIGHT1 (Right Hand Capacitive Touch) BELLY1 (Belly Capacitive Touch)
+SP1 (Speaker)
 
-#### Audio Samples
+SP2 (Speaker)
 
-https://www.youtube.com/watch?v=IE199lbOQo0
+Mouth (Limit Switch)
 
-#### Bluetooth
+Nose (Microswitch)
+
+FW (Forward Mouth)
+
+BW (Backward Mouth)
+
+3.3v (Motor Driver 3v3)
+
+B+ (Motor Driver Battery 6v)
+
+B- (Motor Driver Battery 6v)
+
+LEFT1 (Left Hand Capacitive Touch) GND
+
+RIGHT1 (Right Hand Capacitive Touch) GND
+
+BELLY1 (Belly Capacitive Touch) GND
+
+#### Bluetooth Module NRF N51822
+
+![image](https://github.com/user-attachments/assets/695339c2-ab05-4267-98df-dd04430350df)
+
+![image](https://github.com/user-attachments/assets/1ace0cfc-31fa-431f-b029-97e38099cfb3)
+
+![image](https://github.com/user-attachments/assets/2906f0e8-55ae-4187-ab1a-e16a1b6db445)
+
 
 https://www.bluetooth.com/specifications/assigned-numbers/
 
 ![image](https://github.com/user-attachments/assets/529751ce-6c85-4da0-96ac-e197b177ff7d)
 
 ![image](https://github.com/user-attachments/assets/8c9ca5af-99d6-4484-94d2-dc7f47d92a91)
+
+
+#### Audio Samples
+
+https://www.youtube.com/watch?v=IE199lbOQo0
 
 ```
 Elmo L2L
