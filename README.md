@@ -6895,7 +6895,7 @@ wget https://huggingface.co/datasets/rhasspy/piper-checkpoints/raw/main/en/en_US
 If you have been training for a while and stopped it or had a crash etc. You can resume by doing basically the same thing but with your own training file. You no longer need the lessac checkpoint unless you are going to train a new voice for something else...
 
 ```
-cp /piper1-gpl/my-training/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt ~/piper1-gpl/
+cp /piper1-gpl/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt ~/piper1-gpl/
 ```
 
 ```
@@ -6919,7 +6919,7 @@ You can use tensordashboard to watch your results, like time it has be generatin
 tensorboard --logdir ~/piper/my-training//lightning_logs --port=6006 --bind_all
 ```
 
-If this is a remote server you can tunnel to it via ssh the locally open it in your web browser:
+If this is a remote server you can tunnel to it via ssh then locally open it in your web browser:
 
 ```
 ssh -i .\Documents\gpuserver.pem -L 16006:127.0.0.1:6006 user@ip
@@ -6939,7 +6939,7 @@ Under SCALARS tab you can see your deminished returns on training
 When your model is finished training, export it to onnx with:
 ```
 python3 -m piper.train.export_onnx \
-  --checkpoint ~/piper1-gpl/my-training/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt \
+  --checkpoint ~/piper1-gpl/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt \
   --output-file ~/piper1-gpl/my-model/en_US-elmo-medium.onnx
 cp ~/piper1-gpl/my-training/config.json ~/piper1-gpl/my-model/en_US-elmo-medium.onnx.json
 ```
@@ -6954,7 +6954,9 @@ en_US-elmo-medium.onnx.json
 # Remote File Grab To Piper Docker Storage Location
 
 ```
-scp -i /path/to/your-key.pem username@ip:~/piper1-gpl/my-model/en_US-elmo-medium.onnx /opt/docker-storage/piper/data/
-scp -i /path/to/your-key.pem username@ip:~/piper1-gpl/my-model/en_US-elmo-medium.onnx.json /opt/docker-storage/piper/data/
+scp -i /path/to/your-key.pem username@ip:~/piper1-gpl/my-models/en_US-elmo-medium.* username@ip:/opt/docker-storage/wyoming-piper/data/
+username@ip's password:
+en_US-elmo-medium.onnx
+en_US-elmo-medium.onnx.json 
 ```
 
