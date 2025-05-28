@@ -6960,3 +6960,21 @@ en_US-elmo-medium.onnx
 en_US-elmo-medium.onnx.json 
 ```
 
+Restart the piper container, you may even have to regenerate the compose to make so Home Assistant can see it.
+
+Then select
+Text-to-speech: piper
+Language*: American English
+Voice*: en_US-elmo-medium
+
+![image](https://github.com/user-attachments/assets/3ef5ccde-81aa-4d48-b9be-5a0a49e91ec0)
+
+Hit TRY VOICE
+
+Try text-to-speech
+
+Message
+Hello, how can I assist?
+
+Hit Play and hope for the best!
+
