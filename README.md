@@ -6790,5 +6790,171 @@ Verifying flash... VERIFIED.
 ```
 flashrom -p serprog:ip=10.13.37.100:8888,spispeed=20M -c  --verbose -r l2lelmofwbackup001.bin  
 ```
+## Flashrom Exploration
 
+## Piper TTS
+
+### Filtering audio samples
+
+#### Code
+
+### Training
+
+This documentation is based on https://github.com/OHF-Voice/piper1-gpl/blob/main/TRAINING.md
+
+#### Install
+```
+apt install build-essential cmake ninja-build swig unzip
+git clone https://github.com/OHF-voice/piper1-gpl.git
+cd piper1-gpl
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e .[dev]
+python3 -m pip install piper[train]
+```
+
+Then build the cython extension:
+
+```
+./build_monotonic_align.sh
+```
+
+#### Setup
+
+Note: Mike said pytorch 1 checkpoints are not compatible with pytorch 2. 
+
+Lucky for me I modified the old piper training `/home/ubuntu/piper/src/python/piper_train/vits/lightning.py` to load pytorch 2. I was having issues with the newer NVDA L40S GPU Model and needed to use pytorch 2 for it to work properly. Otherwise it would give this error: `RuntimeError: cuFFT error: CUFFT_INTERNAL_ERROR`
+
+This is not needed for the new build as it uses pytorch 2.
+
+Copy your training wavs into a suitable folder we are going to use my-dataset for this purpose.
+
+The training data here consists of a wav folder and a metadata.csv you don't need to use a folder but if you do specify it in the metadata.csv.
+
+Data in the metadata.csv looks like this: utt1.wav|Text for utterance 1.
+```
+wav/0.wav|Samantha! Elmo is very happy to see you!
+wav/1.wav|Yay! Samantha! We are going to have so much fun together!
+...
+```
+
+```
+mkdir -p ~/piper1-gpl/my-dataset
+cd ~/piper1-gpl/my-dataset
+wget http://bashupload.com/#####/somedataset.zip
+unzip somedataset.zip
+ls
+metadata.csv  wav
+```
+
+#### Running
+
+```
+data.voice_name is the name of your voice (can be anything)
+data.csv_path is the path to the CSV file with audio file names and text
+data.audio_dir is the directory containing the audio files
+model.sample_rate is the sample rate of the audio in hertz
+data.espeak_voice is the espeak-ng voice/language like en-us (see espeak-ng --voices)
+data.cache_dir is a directory where training artifacts are cached (phonemes, trimmed audio, etc.)
+data.config_path is the path to write the voice's JSON config file
+data.batch_size is the training batch size
+ckpt_path is the path to an existing Piper checkpoint
+```
+
+Using --ckpt_path is recommend since it will speed up training a lot, even if the checkpoint is from a different language. Only medium quality checkpoints are supported without.
+
+##### Resuming from a prior checkpoint
+
+You can find some here:
+
+https://huggingface.co/datasets/rhasspy/piper-checkpoints/tree/main
+
+We will be using lessac's prior checkpoint for this example
+
+https://huggingface.co/datasets/rhasspy/piper-checkpoints/blob/main/en/en_US/lessac/medium/epoch%3D2164-step%3D1355540.ckpt
+
+Copy your checkpoint to the piper1-gpl root
+
+```
+wget https://huggingface.co/datasets/rhasspy/piper-checkpoints/raw/main/en/en_US/lessac/medium/epoch%3D2164-step%3D1355540.ckpt
+```
+
+```
+~/piper1-gpl$ script/train \
+--data.voice_name "en_US-elmo-medium" \
+--data.csv_path ~/piper1-gpl/my-dataset/metadata.csv \
+--data.audio_dir ~/piper1-gpl/my-dataset/ 
+--model.sample_rate 22050 \
+--data.espeak_voice "en-us" \
+--data.cache_dir ~/piper1-gpl/my-training/cache/ \
+--data.config_path ~/piper1-gpl/my-training/config.json \
+--data.batch_size 32 \
+--ckpt_path ~/piper1-gpl/epoch\=2164-step\=1355540.ckpt
+```
+
+If you have been training for a while and stopped it or had a crash etc. You can resume by doing basically the same thing but with your own training file. You no longer need the lessac checkpoint unless you are going to train a new voice for something else...
+
+```
+cp /piper1-gpl/my-training/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt ~/piper1-gpl/
+```
+
+```
+~/piper1-gpl$ script/train \
+--data.voice_name "en_US-elmo-medium" \
+--data.csv_path ~/piper1-gpl/my-dataset/metadata.csv \
+--data.audio_dir ~/piper1-gpl/my-dataset/ 
+--model.sample_rate 22050 \
+--data.espeak_voice "en-us" \
+--data.cache_dir ~/piper1-gpl/my-training/cache/ \
+--data.config_path ~/piper1-gpl/my-training/config.json \
+--data.batch_size 32 \
+--ckpt_path ~/piper1-gpl/epoch\=5999-step\=1662340.ckpt
+```
+
+#### WebUI Tensordashboard
+
+You can use tensordashboard to watch your results, like time it has be generating and seeing the diminished returns on the length of your training.
+
+```
+tensorboard --logdir ~/piper/my-training//lightning_logs --port=6006 --bind_all
+```
+
+If this is a remote server you can tunnel to it via ssh the locally open it in your web browser:
+
+```
+ssh -i .\Documents\gpuserver.pem -L 16006:127.0.0.1:6006 user@ip
+```
+
+http://localhost:16006/
+
+Under the TIME SERIES tab you will see your Relative training time for each version:
+
+![image](https://github.com/user-attachments/assets/2db4c5e5-4831-457b-a7d4-7825d14ce1c7)
+
+Under SCALARS tab you can see your deminished returns on training
+
+![image](https://github.com/user-attachments/assets/ad690497-caf1-4926-b9b9-4b00c8ae44e6)
+
+#### Exporting
+When your model is finished training, export it to onnx with:
+```
+python3 -m piper.train.export_onnx \
+  --checkpoint ~/piper1-gpl/my-training/lightning_logs/version_0/checkpoints/epoch\=5999-step\=1504740.ckpt \
+  --output-file ~/piper1-gpl/my-model/en_US-elmo-medium.onnx
+cp ~/piper1-gpl/my-training/config.json ~/piper1-gpl/my-model/en_US-elmo-medium.onnx.json
+```
+
+Note: To make this compatible with other Piper voices, rename model.onnx as <language>-<name>-medium.onnx (e.g., en_US-lessac-medium.onnx). Name the JSON config file that was written to --data.config_path the same with a .json extension. So you would have two files for the voice.
+
+```
+en_US-elmo-medium.onnx
+en_US-elmo-medium.onnx.json
+```
+
+# Remote File Grab To Piper Docker Storage Location
+
+```
+scp -i /path/to/your-key.pem username@ip:~/piper1-gpl/my-model/en_US-elmo-medium.onnx /opt/docker-storage/piper/data/
+scp -i /path/to/your-key.pem username@ip:~/piper1-gpl/my-model/en_US-elmo-medium.onnx.json /opt/docker-storage/piper/data/
+```
 
