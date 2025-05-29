@@ -685,7 +685,10 @@ Save it to the prior location C:\Users\nonasuomy\code\elmo\elmo_app_decompiled\a
 ### Recompile APK
 
 ```
-../Apps/apktool b elmo_app_decompiled -o Love2LearnElmo_1.5.1mod2.apk
+apktool.bat b elmo_app_decompiled -o Love2LearnElmo_1.5.1mod2.apk
+```
+Output
+```
 I: Using Apktool 2.11.1 on Love2LearnElmo_1.5.1mod2.apk with 8 threads
 I: Checking whether sources have changed...
 I: Checking whether resources have changed...
@@ -702,6 +705,9 @@ Press any key to continue . . .
 
 ```
 keytool -genkeypair -v -keystore nonasuomy-key.keystore -alias nonasuomy -keyalg RSA -keysize 2048 -validity 10000
+```
+Output
+```
 Enter keystore password:
 
 Re-enter new password:
@@ -730,6 +736,9 @@ Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) wi
 ### APK Signing
 ```
 jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore nonasuomy-key.keystore Love2LearnElmo_1.5.1mod2.apk nonasuomy
+```
+Output
+```
 Enter Passphrase for keystore:
 ```
 <details>
