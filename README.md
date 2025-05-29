@@ -6963,8 +6963,11 @@ en_US-elmo-medium.onnx.json
 Restart the piper container, you may even have to regenerate the compose to make so Home Assistant can see it.
 
 Then select
+
 Text-to-speech: piper
+
 Language*: American English
+
 Voice*: en_US-elmo-medium
 
 ![image](https://github.com/user-attachments/assets/3ef5ccde-81aa-4d48-b9be-5a0a49e91ec0)
@@ -6974,6 +6977,7 @@ Hit TRY VOICE
 Try text-to-speech
 
 Message
+
 Hello, how can I assist?
 
 Hit Play and hope for the best!
@@ -6984,8 +6988,12 @@ Hit Play and hope for the best!
 https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb
 
 Edit the target_word: Hey El_mo
+
 Hit the Play button beside the 1.
+
 When you think it sounds good hit steps 2 and 3 play buttons.
+
+Takes around 30 minutes to produce the files.
 
 It should download two files an ONNX file and a tflite file (The web browser may say the site is trying to send you multiple files make sure you accept it)
 
