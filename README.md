@@ -6978,3 +6978,41 @@ Hello, how can I assist?
 
 Hit Play and hope for the best!
 
+### OpenWakeWord
+
+#### Colab
+https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb
+
+Edit the target_word: Hey El_mo
+Hit the Play button beside the 1.
+When you think it sounds good hit steps 2 and 3 play buttons.
+
+It should download two files an ONNX file and a tflite file (The web browser may say the site is trying to send you multiple files make sure you accept it)
+
+Rename the files if you added underscores etc in the test box so it looks fine in the WebUI.
+
+```
+mv Hey_El_mo.onnx Hey_Elmo.onnx
+mv Hey_El_mo.tflite Hey_Elmo.tflite
+```
+
+Add the custom directory to your OpenWakeWord docker container.
+
+```
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/docker-storage/wyoming-openwakeword/data:/data
+      - /opt/docker-storage/wyoming-openwakeword/config:/config
+      - /opt/docker-storage/wyoming-openwakeword/custom:/custom
+```
+
+Copy the tflite and onnx files to your OpenWakeWord docker custom folder.
+
+```
+scp Hey_Elmo.* username@ip:/opt/docker-storage/wyoming-openwakeword/custom/
+```
+
+Rebuild and restart the docker compose to make it load the new wake word.
+
+![image](https://github.com/user-attachments/assets/9d06b0db-3361-4a9e-8404-70a16c4535eb)
+
